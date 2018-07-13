@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhonghuilv.shouyin.mapper.OperatorMapper">
+  <resultMap id="baseResultMap" type="com.zhonghuilv.shouyin.pojo.Operator">
+       <result column="operatorno" jdbcType="INTEGER" property="operatorno"/>
+       <result column="operatorname" jdbcType="VARCHAR" property="operatorname"/>
+       <result column="telephone" jdbcType="INTEGER" property="telephone"/>
+       <result column="password" jdbcType="VARCHAR" property="password"/>
+       <result column="opetatorauthority" jdbcType="INTEGER" property="opetatorauthority"/>
+  </resultMap>
+    <sql id="selectAll">
+            operatorno,
+            operatorname,
+            telephone,
+            password,
+            opetatorauthority,
+    </sql>
+
+    <sql id="parmAll">
+        <if test="operatorno != null">
+            AND operatorno = operatorno
+        </if>
+        <if test="operatorname != null">
+            AND operatorname = operatorname
+        </if>
+        <if test="telephone != null">
+            AND telephone = telephone
+        </if>
+        <if test="password != null">
+            AND password = password
+        </if>
+        <if test="opetatorauthority != null">
+            AND opetatorauthority = opetatorauthority
+        </if>
+    </sql>
+</mapper>

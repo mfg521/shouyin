@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhonghuilv.shouyin.mapper.StockBackDetailsMapper">
+  <resultMap id="baseResultMap" type="com.zhonghuilv.shouyin.pojo.StockBackDetails">
+       <result column="stockbackdetailsno" jdbcType="INTEGER" property="stockbackdetailsno"/>
+       <result column="stockbackno" jdbcType="INTEGER" property="stockbackno"/>
+       <result column="article_barcode" jdbcType="VARCHAR" property="articleBarcode"/>
+       <result column="num" jdbcType="INTEGER" property="num"/>
+       <result column="price" jdbcType="DECIMAL" property="price"/>
+       <result column="amout" jdbcType="DECIMAL" property="amout"/>
+  </resultMap>
+    <sql id="selectAll">
+            stockbackdetailsno,
+            stockbackno,
+            article_barcode,
+            num,
+            price,
+            amout,
+    </sql>
+
+    <sql id="parmAll">
+        <if test="stockbackdetailsno != null">
+            AND stockbackdetailsno = stockbackdetailsno
+        </if>
+        <if test="stockbackno != null">
+            AND stockbackno = stockbackno
+        </if>
+        <if test="article_barcode != null">
+            AND article_barcode = article_barcode
+        </if>
+        <if test="num != null">
+            AND num = num
+        </if>
+        <if test="price != null">
+            AND price = price
+        </if>
+        <if test="amout != null">
+            AND amout = amout
+        </if>
+    </sql>
+</mapper>

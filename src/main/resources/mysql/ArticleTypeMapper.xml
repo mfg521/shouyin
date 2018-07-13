@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhonghuilv.shouyin.mapper.ArticleTypeMapper">
+  <resultMap id="baseResultMap" type="com.zhonghuilv.shouyin.pojo.ArticleType">
+       <result column="typeId" jdbcType="INTEGER" property="typeid"/>
+       <result column="typename" jdbcType="VARCHAR" property="typename"/>
+  </resultMap>
+    <sql id="selectAll">
+            typeId,
+            typename,
+    </sql>
+
+    <sql id="parmAll">
+        <if test="typeid != null">
+            AND typeId = typeid
+        </if>
+        <if test="typename != null">
+            AND typename = typename
+        </if>
+    </sql>
+</mapper>

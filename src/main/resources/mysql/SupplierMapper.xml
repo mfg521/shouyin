@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhonghuilv.shouyin.mapper.SupplierMapper">
+  <resultMap id="baseResultMap" type="com.zhonghuilv.shouyin.pojo.Supplier">
+       <result column="supplierno" jdbcType="INTEGER" property="supplierno"/>
+       <result column="suppliername" jdbcType="VARCHAR" property="suppliername"/>
+       <result column="connecperson" jdbcType="VARCHAR" property="connecperson"/>
+       <result column="telephone" jdbcType="INTEGER" property="telephone"/>
+       <result column="address" jdbcType="VARCHAR" property="address"/>
+  </resultMap>
+    <sql id="selectAll">
+            supplierno,
+            suppliername,
+            connecperson,
+            telephone,
+            address,
+    </sql>
+
+    <sql id="parmAll">
+        <if test="supplierno != null">
+            AND supplierno = supplierno
+        </if>
+        <if test="suppliername != null">
+            AND suppliername = suppliername
+        </if>
+        <if test="connecperson != null">
+            AND connecperson = connecperson
+        </if>
+        <if test="telephone != null">
+            AND telephone = telephone
+        </if>
+        <if test="address != null">
+            AND address = address
+        </if>
+    </sql>
+</mapper>

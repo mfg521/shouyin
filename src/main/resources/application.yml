@@ -1,0 +1,44 @@
+spring:
+  datasource:
+    name: basic
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/shouyin?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    minIdle: 3
+    maxActive: 50
+    initialSize: 10
+    timeBetweenEvictionRunsMillis: 3000
+    minEvictableIdleTimeMillis: 30000
+    validationQuery: select 1
+    testWhileIdle: true
+    testOnBorrow: true
+    testOnReturn: true
+
+mybatis:
+    type-aliases-package: com.zhonghuilv.shouyin.pojo
+    #驼峰
+    configuration:
+      map-underscore-to-camel-case: true
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    mapper-locations: classpath:mysql/*.xml
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+mapper:
+    mappers:
+        - com.zhonghuilv.shouyin.common.CommonMapper
+    not-empty: false
+    identity: MYSQL
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+

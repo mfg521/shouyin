@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhonghuilv.shouyin.mapper.StockBackMapper">
+  <resultMap id="baseResultMap" type="com.zhonghuilv.shouyin.pojo.StockBack">
+       <result column="stockbackno" jdbcType="INTEGER" property="stockbackno"/>
+       <result column="operatorno" jdbcType="INTEGER" property="operatorno"/>
+       <result column="supplierno" jdbcType="INTEGER" property="supplierno"/>
+       <result column="createdate" jdbcType="TIMESTAMP" property="createdate"/>
+  </resultMap>
+    <sql id="selectAll">
+            stockbackno,
+            operatorno,
+            supplierno,
+            createdate,
+    </sql>
+
+    <sql id="parmAll">
+        <if test="stockbackno != null">
+            AND stockbackno = stockbackno
+        </if>
+        <if test="operatorno != null">
+            AND operatorno = operatorno
+        </if>
+        <if test="supplierno != null">
+            AND supplierno = supplierno
+        </if>
+        <if test="createdate != null">
+            AND createdate = createdate
+        </if>
+    </sql>
+</mapper>

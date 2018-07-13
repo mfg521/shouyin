@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhonghuilv.shouyin.mapper.OrderBackMapper">
+  <resultMap id="baseResultMap" type="com.zhonghuilv.shouyin.pojo.OrderBack">
+       <result column="orderbackno" jdbcType="INTEGER" property="orderbackno"/>
+       <result column="opetatorno" jdbcType="VARCHAR" property="opetatorno"/>
+       <result column="createdate" jdbcType="TIMESTAMP" property="createdate"/>
+  </resultMap>
+    <sql id="selectAll">
+            orderbackno,
+            opetatorno,
+            createdate,
+    </sql>
+
+    <sql id="parmAll">
+        <if test="orderbackno != null">
+            AND orderbackno = orderbackno
+        </if>
+        <if test="opetatorno != null">
+            AND opetatorno = opetatorno
+        </if>
+        <if test="createdate != null">
+            AND createdate = createdate
+        </if>
+    </sql>
+</mapper>

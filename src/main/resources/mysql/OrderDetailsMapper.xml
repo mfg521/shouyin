@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhonghuilv.shouyin.mapper.OrderDetailsMapper">
+  <resultMap id="baseResultMap" type="com.zhonghuilv.shouyin.pojo.OrderDetails">
+       <result column="orderdetailno" jdbcType="INTEGER" property="orderdetailno"/>
+       <result column="orderno" jdbcType="INTEGER" property="orderno"/>
+       <result column="article_barcode" jdbcType="VARCHAR" property="articleBarcode"/>
+       <result column="num" jdbcType="INTEGER" property="num"/>
+       <result column="price" jdbcType="DECIMAL" property="price"/>
+       <result column="amount" jdbcType="DECIMAL" property="amount"/>
+  </resultMap>
+    <sql id="selectAll">
+            orderdetailno,
+            orderno,
+            article_barcode,
+            num,
+            price,
+            amount,
+    </sql>
+
+    <sql id="parmAll">
+        <if test="orderdetailno != null">
+            AND orderdetailno = orderdetailno
+        </if>
+        <if test="orderno != null">
+            AND orderno = orderno
+        </if>
+        <if test="articleCode != null">
+            AND article_barcode = article_barcode
+        </if>
+        <if test="num != null">
+            AND num = num
+        </if>
+        <if test="price != null">
+            AND price = price
+        </if>
+        <if test="amount != null">
+            AND amount = amount
+        </if>
+    </sql>
+</mapper>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhonghuilv.shouyin.mapper.StockinDetailsMapper">
+  <resultMap id="baseResultMap" type="com.zhonghuilv.shouyin.pojo.StockinDetails">
+       <result column="stockindetailsno" jdbcType="INTEGER" property="stockindetailsno"/>
+       <result column="stockinuuid" jdbcType="VARCHAR" property="stockinuuid"/>
+       <result column="article_barcode" jdbcType="VARCHAR" property="articleBarcode"/>
+       <result column="num" jdbcType="INTEGER" property="num"/>
+       <result column="price" jdbcType="DECIMAL" property="price"/>
+       <result column="amount" jdbcType="DECIMAL" property="amount"/>
+  </resultMap>
+    <sql id="selectAll">
+            stockindetailsno,
+            stockinuuid,
+            article_barcode,
+            num,
+            price,
+            amount,
+    </sql>
+
+    <sql id="parmAll">
+        <if test="stockindetailsno != null">
+            AND stockindetailsno = stockindetailsno
+        </if>
+        <if test="stockinuuid != null">
+            AND stockinuuid = stockinuuid
+        </if>
+        <if test="article_barcode != null">
+            AND article_barcode = article_barcode
+        </if>
+        <if test="num != null">
+            AND num = num
+        </if>
+        <if test="price != null">
+            AND price = price
+        </if>
+        <if test="amount != null">
+            AND amount = amount
+        </if>
+    </sql>
+</mapper>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhonghuilv.shouyin.mapper.OrderInfoMapper">
+  <resultMap id="baseResultMap" type="com.zhonghuilv.shouyin.pojo.OrderInfo">
+       <result column="orderno" jdbcType="INTEGER" property="orderno"/>
+       <result column="operatorno" jdbcType="INTEGER" property="operatorno"/>
+       <result column="orderstate" jdbcType="INTEGER" property="orderstate"/>
+       <result column="paystate" jdbcType="INTEGER" property="paystate"/>
+       <result column="createdate" jdbcType="TIMESTAMP" property="createdate"/>
+  </resultMap>
+    <sql id="selectAll">
+            orderno,
+            operatorno,
+            orderstate,
+            paystate,
+            createdate,
+    </sql>
+
+    <sql id="parmAll">
+        <if test="orderno != null">
+            AND orderno = orderno
+        </if>
+        <if test="operatorno != null">
+            AND operatorno = operatorno
+        </if>
+        <if test="orderstate != null">
+            AND orderstate = orderstate
+        </if>
+        <if test="paystate != null">
+            AND paystate = paystate
+        </if>
+        <if test="createdate != null">
+            AND createdate = createdate
+        </if>
+    </sql>
+
+    <update id="updateOrderInfo">
+        update orderInfo
+        set orderstate=#{orderstate}
+        where orderinfouuid=#{orderinfouuid}
+    </update>
+
+</mapper>

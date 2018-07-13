@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhonghuilv.shouyin.mapper.StockinMapper">
+  <resultMap id="baseResultMap" type="com.zhonghuilv.shouyin.pojo.Stockin">
+       <result column="stockinno" jdbcType="INTEGER" property="stockinno"/>
+       <result column="stockinuuid" jdbcType="VARCHAR" property="stockinuuid"/>
+       <result column="supplierno" jdbcType="INTEGER" property="supplierno"/>
+       <result column="operatorno" jdbcType="INTEGER" property="operatorno"/>
+       <result column="stockindate" jdbcType="TIMESTAMP" property="stockindate"/>
+  </resultMap>
+    <sql id="selectAll">
+            stockinno,
+            stockinuuid,
+            supplierno,
+            operatorno,
+            stockindate,
+    </sql>
+
+    <sql id="parmAll">
+        <if test="stockinno != null">
+            AND stockinno = stockinno
+        </if>
+        <if test="stockinuuid != null">
+            AND stockinuuid = stockinuuid
+        </if>
+        <if test="supplierno != null">
+            AND supplierno = supplierno
+        </if>
+        <if test="operatorno != null">
+            AND operatorno = operatorno
+        </if>
+        <if test="stockindate != null">
+            AND stockindate = stockindate
+        </if>
+    </sql>
+</mapper>

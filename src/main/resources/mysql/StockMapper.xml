@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhonghuilv.shouyin.mapper.StockMapper">
+  <resultMap id="baseResultMap" type="com.zhonghuilv.shouyin.pojo.Stock">
+       <result column="stockno" jdbcType="INTEGER" property="stockno"/>
+       <result column="article_barcode" jdbcType="VARCHAR" property="articleBarcode"/>
+       <result column="num" jdbcType="INTEGER" property="num"/>
+       <result column="expridate" jdbcType="TIMESTAMP" property="expridate"/>
+  </resultMap>
+    <sql id="selectAll">
+            stockno,
+            article_barcode,
+            num,
+            expridate,
+    </sql>
+
+    <sql id="parmAll">
+        <if test="stockno != null">
+            AND stockno = stockno
+        </if>
+        <if test="articleno != null">
+            AND article_barcode = article_barcode
+        </if>
+        <if test="num != null">
+            AND num = num
+        </if>
+        <if test="expridate != null">
+            AND expridate = expridate
+        </if>
+    </sql>
+
+    <select id="selectByArticleCode" resultType="com.zhonghuilv.shouyin.pojo.Stock">
+        select  stockno, article_barcode, num, expridate from stock
+        where article_barcode=#{articleBarcode}
+    </select>
+
+    <update id="updateStock">
+        update stock
+        set num=#{num}
+        where article_barcode=#{articleBarcode}
+    </update>
+</mapper>
